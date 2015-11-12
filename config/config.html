@@ -1,10 +1,11 @@
 <h3>Configuration</h3>
+<!--
 <h4>User</h4>
 <p>
-  Specify which user to login as during SSH.
+  Specify which default user for all host to login as during SSH.
 </p>
 <input type="text" class="span3" name="user" ng-model="config.user" placeholder="deploy">
-
+-->
 <h4>Hosts</h4>
 <p>
   Specify here which hosts to connect to during deployment.
@@ -18,8 +19,9 @@
   <li ng-hide="config.hosts.length">You must add at least one host in order to deploy!</li>
 </ul>
 <div class="form-inline">
-  <input placeholder="staging.example.com:22" ng-model="new_host" type="text">
+  <input placeholder="deployuser@staging.example.com:22" ng-model="new_host" type="text">
   <button class="btn btn-success" ng-disabled="!new_host" ng-click="addHost()">Add</button>
+  <p ng-show="error">Invalid host, host must be <b>'user@host:port'</b></p>
 </div>
 
 

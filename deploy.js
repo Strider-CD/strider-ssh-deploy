@@ -16,7 +16,7 @@ var getConnectionOptions = function(config, callback) {
         return {
           host: parsed.host,
           port: parsed.port,
-          username: config.user,
+          username: parsed.user,
           privateKey: key
         }
       }));
