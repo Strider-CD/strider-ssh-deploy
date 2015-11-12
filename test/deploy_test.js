@@ -26,10 +26,10 @@ describe("deploy", function() {
     describe("when three hosts configured", function() {
       beforeEach(function() {
         config = { hosts: [
-          'example.org',
-          'example2.org:2022',
-          '127.0.0.1:22'
-        ], user: "testUser", script: "./deploy.sh <%= ref.branch %>"};
+          'testUser@example.org',
+          'testUser@example2.org:2022',
+          'testUser@127.0.0.1:22'
+        ], script: "./deploy.sh <%= ref.branch %>"};
         context = {
           comment:sinon.stub(),
           job: { project: { name: "foo", branches: [] }, ref: { branch: 'master' } }

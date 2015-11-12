@@ -25,12 +25,19 @@ describe("controller", function() {
       scope.new_host = str;
       scope.addHost();
     };
-
+    
     it("allows adding likely valid hosts", function() {
+      add('testUser@staging.example.org');
+      add('testUser@staging2.example.org:22');
+      add('testUser@staging3.example.org:2202');
+      expect(config.hosts).to.have.length(3);
+    });
+
+    it("won't add a host with missing user", function() {
       add('staging.example.org');
       add('staging2.example.org:22');
       add('staging3.example.org:2202');
-      expect(config.hosts).to.have.length(3);
+      expect(config.hosts).to.have.length(0);
     });
 
     it("won't add a host with more than one colon", function() {
@@ -46,8 +53,8 @@ describe("controller", function() {
     });
 
     it("converts implicit port to explicit port when adding", function() {
-      add('staging.example.org');
-      expect(config.hosts[0]).to.eq('staging.example.org:22');
+      add('testUser@staging.example.org');
+      expect(config.hosts[0]).to.eq('testUser@staging.example.org:22');
     });
   });
 });
