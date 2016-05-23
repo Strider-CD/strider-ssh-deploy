@@ -6,8 +6,10 @@ chai.use(require("sinon-chai"));
 describe("host string parsing", function(){
   var parseHostString = require("../parse_host_string");
 
-  it("user@host:port", function() {
-    var result = parseHostString("user@host:1234");
+  it("should parse accepted host string", function() {
+    var input = "user@host:1234";
+
+    var result = parseHostString(input);
     expect(result).to.have.property("user");
     expect(result.user).to.equal("user");
 
@@ -16,5 +18,12 @@ describe("host string parsing", function(){
 
     expect(result).to.have.property("port");
     expect(result.port).to.equal(1234);
+
+    expect(result.string).to.equal(input);
+  });
+
+  it("should not parse old host string", function() {
+    var result = parseHostString("host:1234");
+    expect(result).to.equal(null);
   });
 });
