@@ -1,5 +1,7 @@
 # strider-ssh-deploy 
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Strider-CD/strider-ssh-deploy.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/Strider-CD/strider-ssh-deploy.svg?branch=master)](https://travis-ci.org/Strider-CD/strider-ssh-deploy) [![Dependency Status][dep-img]][dep-link] [![devDependency Status][dev-dep-img]][dev-dep-link]
 
 [![NPM][npm-badge-img]][npm-badge-link]
